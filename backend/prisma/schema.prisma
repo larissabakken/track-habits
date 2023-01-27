@@ -9,3 +9,18 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Habit {
+  id        String      @id @default(uuid()) // uuid() is a function that generates a v4 UUID (globally unique identifier).
+  title     String 
+  createdAt DateTime    @default(now()) // now() is a function that returns the current date and time.
+  @@map("habits")
+}
+
+model User {
+  id        String      @id @default(uuid())
+  email     String      @unique
+  name      String?
+  createdAt DateTime    @default(now())
+  @@map("users")
+}
