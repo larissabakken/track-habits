@@ -3,7 +3,12 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-    
+    await prisma.habit.create({
+        data: {
+            title: 'Meditate',
+            createdAt: new Date('2023-02-01T00:00:00Z'),
+        },
+    })
 
 }
 
